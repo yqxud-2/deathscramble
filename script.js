@@ -1,11 +1,13 @@
 const fonts = [
-    '"Impact", fantasy', 
-    '"Courier New", monospace', 
-    '"Comic Sans MS", "Marker Felt", cursive', 
-    '"Papyrus", fantasy', 
-    '"Times New Roman", serif', 
-    '"Arial Black", sans-serif',
-    'system-ui'
+    'BungeeShade',
+    'Codystar',
+    'ComicRelief',
+    'Creepster',
+    'DotGothic16',
+    'Monoton',
+    'Nosifer',
+    'RubikGlitchPop',
+    'ZillaSlabHighlight'
 ];
 
 let wordList = []; 
@@ -136,8 +138,13 @@ function letterChaosLoop(el) {
     const currentChar = el.innerText;
     el.innerText = Math.random() > 0.5 ? currentChar.toUpperCase() : currentChar.toLowerCase();
 
+    */
+
     // thiccc or thinnn
-    el.style.fontWeight = Math.random() * 1000;
+    const fontWeightOptions = [300, 400, 700, 900];
+    el.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
+
+    /*
 
     // text deco
     const decos = [];
