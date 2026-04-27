@@ -173,7 +173,7 @@ function rescrambleIntervalLoop() {
     container.style.top = `${randomTop}%`;
     container.style.left = `${randomLeft}%`;
 
-    const delay = (Math.random() * 6000 + 2000) / difficultyMultiplier;
+    const delay = (Math.random() * 3000 + 1000) / difficultyMultiplier;
     setTimeout(rescrambleIntervalLoop, delay);
 }
 
