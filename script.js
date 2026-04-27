@@ -123,9 +123,9 @@ function letterChaosLoop(el) {
     const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
     el.style.fontFamily = randomFont;
 
-    el.style.fontSize = "5rem";  
+    el.style.fontSize = "50px";  
     el.style.opacity = "1";          
-    el.style.color = "white";  
+    el.style.color = "orange";  
     el.style.display = "inline-block";
 
     // sizing :o
