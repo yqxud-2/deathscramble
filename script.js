@@ -34,10 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
     flash = document.getElementById('flash-overlay'); 
     inputField = document.getElementById('user-input'); 
 
-    // Admin DOM elements
+    // Admin settings!!!
     adminMenu = document.getElementById('admin-menu');
+    
     teleportToggle = document.getElementById('toggle-teleport');
     fontToggle = document.getElementById('toggle-fonts');
+    jumpingToggle = document.getElementById('toggle-jumping');
+    anglesToggle = document.getElementById('toggle-angles');
+    sizingToggle = document.getElementById('toggle-sizing');
+    
     closeAdminBtn = document.getElementById('close-admin');
 
     setupInputListener(); 
@@ -118,6 +123,18 @@ function setupInputListener() {
 
     fontToggle.addEventListener('change', (e) => {
         allowFontChaos = e.target.checked;
+    });
+
+    jumpingToggle.addEventListener('change', (e) => {
+        allowJumping = e.target.checked;
+    });
+
+    anglesToggle.addEventListener('change', (e) => {
+        allowAngles = e.target.checked;
+    });
+
+    sizingToggle.addEventListener('change', (e) => {
+        allowSizing = e.target.checked;
     });
 
     slider.addEventListener('input', (e) => { 
@@ -209,9 +226,9 @@ function letterChaosLoop(el) {
     el.style.textDecorationColor = '#ffffff'; 
 
     // i like to move it move it 
-    const rot = Math.random() * 360;
-    const scale = (Math.random() > 0.5 ? -1 : 1) * Math.random() * 2 + 0.5;
-    const transY = Math.random() * 60 - 30;
+    const rot = allowAngles ? Math.random() * 360 : 0;
+    const scale = allowSizing ? (Math.random() > 0.5 ? -1 : 1) * Math.random() * 2 + 0.5 : 0;
+    const transY = allowJumping ? Math.random() * 60 - 30 : 0;
     el.style.transform = `rotate(${rot}deg) scaleX(${scale}) translateY(${transY}px)`; 
 
     if (Math.random() > 0.9) { 
