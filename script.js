@@ -153,9 +153,14 @@ function letterChaosLoop(el) {
         scaleX(${Math.random() > 0.8 ? -1 : 1}) 
         translateY(${Math.random() * 20 - 10}px)`;
 
-    el.style.opacity = Math.random();
-
-    el.style.opacity = Math.random() > 0.9 ? 0 : el.style.opacity; 
+    if (Math.random() > 0.9) {
+        el.style.opacity = "0";
+    } else {
+        const opacityLevels = [0.2, 0.5, 1.0]; 
+        el.style.opacity = opacityLevels[Math.floor(Math.random() * opacityLevels.length)];
+    }
+    
+    el.style.filter = Math.random() > 0.8 ? "invert(1)" : "invert(0)";
     
     const delay = (Math.random() * 500 + 100) / difficultyMultiplier;
     setTimeout(() => letterChaosLoop(el), delay);
