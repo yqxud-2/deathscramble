@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>deathscramble</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        const warning = "WARNING: This game contains rapid flashing, high-contrast strobing, and disorienting visual patterns. It may cause motion sickness or trigger photosensitive seizures.\n\nType 'start' to acknowledge and proceed.";
+        let userConfirm = prompt(warning);
+        if (!userConfirm || userConfirm.toLowerCase() !== 'start') {
+            document.body.innerHTML = "<h1 style='color:white; text-align:center; font-family:sans-serif; margin-top:20vh;'>Game Aborted. Stay safe.</h1>";
+            throw new Error("User aborted execution."); // Stops the rest of the JS from running
+        }
+    </script>
+
+    <svg style="width:0; height:0; position:absolute;">
+        <filter id="liquid-warp">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" result="warp" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp" />
+        </filter>
+    </svg>
+
+    <div id="game-viewport" class="pattern-a">
+        <div id="scrambled-container"></div>
+
+        <div id="ui-layer">
+            <input type="text" id="user-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="TYPE HERE">
+        </div>
+
+        <div id="difficulty-panel">
+            <label for="speed-slider">CHAOS MULTIPLIER</label>
+            <input type="range" id="speed-slider" min="0.2" max="5.0" step="0.1" value="1.0">
+            <span id="multiplier-display">1.0x</span>
+        </div>
+    </div>
+
+    <div id="flash-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
