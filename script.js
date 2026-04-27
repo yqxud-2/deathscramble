@@ -18,6 +18,9 @@ let difficultyMultiplier = 1.0;
 // NEW STATE VARIABLES
 let allowTeleport = true;
 let allowFontChaos = true;
+let allowJumping = true;
+let allowAngles = true;
+let allowSizing = true;
 let isMenuOpen = false;
 let tapTimes = [];
 
@@ -202,7 +205,7 @@ function letterChaosLoop(el) {
     }
 
     // sizing :o 
-    const randomSize = (Math.random() * 5 + 2).toFixed(2); 
+    const randomSize = allowSizing ? (Math.random() * 5 + 2).toFixed(2) : 4.5; 
     el.style.fontSize = `${randomSize}rem`; 
 
     // uppercase, lowercase 
@@ -227,7 +230,7 @@ function letterChaosLoop(el) {
 
     // i like to move it move it 
     const rot = allowAngles ? Math.random() * 360 : 0;
-    const scale = allowSizing ? (Math.random() > 0.5 ? -1 : 1) * Math.random() * 2 + 0.5 : 0;
+    const scale = allowSizing ? (Math.random() > 0.5 ? -1 : 1) * Math.random() * 2 + 0.5 : 1;
     const transY = allowJumping ? Math.random() * 60 - 30 : 0;
     el.style.transform = `rotate(${rot}deg) scaleX(${scale}) translateY(${transY}px)`; 
 
