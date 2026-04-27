@@ -125,11 +125,6 @@ function letterChaosLoop(el) {
     const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
     el.style.fontFamily = randomFont;
 
-    el.style.fontSize = "50px";  
-    el.style.opacity = "1";          
-    el.style.color = "orange";  
-    el.style.display = "inline-block";
-
     // sizing :o
     const randomSize = (Math.random() * 5 + 2).toFixed(2);
     el.style.fontSize = `${randomSize}rem`;
@@ -142,7 +137,7 @@ function letterChaosLoop(el) {
 
     // thiccc or thinnn
     const fontWeightOptions = [300, 400, 700, 900];
-    el.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
+    el.style.fontWeight = fontWeightOptions[Math.floor(Math.random() * 4)];
 
     
 
