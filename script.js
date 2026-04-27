@@ -26,7 +26,8 @@ let tapTimes = [];
 
 // initialize 
 let container, slider, multiplierDisplay, viewport, flash, inputField; 
-let adminMenu, teleportToggle, fontToggle, closeAdminBtn;
+let adminMenu, closeAdminBtn 
+let jumpingToggle, anglesToggle, sizingToggle, teleportToggle, fontToggle;
 
 // give values after html loads 
 document.addEventListener('DOMContentLoaded', () => { 
