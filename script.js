@@ -9,7 +9,7 @@ const fonts = [
     'system-ui'
 ];
 
-let wordList = ["NIGHTMARE", "DYSLEXIA", "TORTURE", "CHAOS"]; 
+let wordList = []; 
 let currentWord = "";
 let scrambledArray = [];
 let difficultyMultiplier = 1.0;
@@ -39,7 +39,7 @@ async function initGame() {
             wordList = data.word_list;
         }
     } catch (error) {
-        console.warn("JSON failed to load, using fallback word list.");
+        alert("oh no, i couldn't load the words :(((( try refreshing");
     }
     
     setupNewWord();
