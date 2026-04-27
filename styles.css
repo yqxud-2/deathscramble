@@ -95,21 +95,67 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
-#difficulty-panel {
-    position: absolute;
-    bottom: 30px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 15px;
-    border: 2px solid white;
-    font-family: monospace;
-    font-size: 1.2rem;
+#admin-menu {
+    display: none; 
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+}
+
+#admin-menu h2 {
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.setting-row {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 15px 0;
     gap: 10px;
-    z-index: 20;
+    width: 100%;
 }
+
+.setting-row label {
+    font-size: 1.2rem;
+}
+
+
+#close-admin {
+    margin-top: 40px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 15px 30px;
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#close-admin:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+
+.paused-chaos {
+    filter: none !important;
+}
+.paused-chaos .pattern-a, 
+.paused-chaos .pattern-b {
+    animation-play-state: paused !important;
+}
+
 
 input[type=range] {
     width: 250px;
