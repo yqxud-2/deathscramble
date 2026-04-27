@@ -190,6 +190,7 @@ function closeAdminMenu() {
     isMenuOpen = false;
     adminMenu.style.display = 'none';
     viewport.classList.remove('paused-chaos');
+    renderLetters();
     inputField.focus(); 
 }
 
