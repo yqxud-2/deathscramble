@@ -162,9 +162,10 @@ function letterChaosLoop(el) {
     setTimeout(() => letterChaosLoop(el), delay);
 }
 
-/*
+
 // scramble and teleport
 function rescrambleIntervalLoop() {
+    /*
     scrambledArray.sort(() => Math.random() - 0.5);
     scrambledArray.forEach((char, i) => {
         const el = document.getElementById(`letter-${i}`);
@@ -179,27 +180,34 @@ function rescrambleIntervalLoop() {
 
     const delay = (Math.random() * 2000 + 500) / difficultyMultiplier;
     setTimeout(rescrambleIntervalLoop, delay);
+    */
 }
 
 // background chaos :)))
 function backgroundChaosLoop() {
+    /*
     viewport.classList.toggle('pattern-a');
     viewport.classList.toggle('pattern-b');
     const delay = (Math.random() * 1000 + 500) / difficultyMultiplier;
     setTimeout(backgroundChaosLoop, delay);
+    */
 }
 
 // epilepsy :P
 function afterimageFlashLoop() {
+    /*
     flash.style.opacity = 1;
     setTimeout(() => flash.style.opacity = 0, 16); 
     const delay = (Math.random() * 3000 + 3000) / difficultyMultiplier;
     setTimeout(afterimageFlashLoop, delay);
+    */
 }
 
 // breathe in, breathe out
 function breathingKerningLoop() {
+    /*
     const tracking = Math.random() * 40 - 20; 
     container.style.letterSpacing = `${tracking}px`;
     setTimeout(breathingKerningLoop, 2000 / difficultyMultiplier);
+    */
 }
