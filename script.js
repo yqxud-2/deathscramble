@@ -143,15 +143,15 @@ function letterChaosLoop(el) {
     if (Math.random() > 0.7) decos.push('line-through');
     el.style.textDecoration = decos.length > 0 ? decos.join(' ') : 'none';
 
-    el.style.textDecorationThickness = `${Math.random()*7+2}px`;
+    el.style.textDecorationThickness = `${Math.random()*10+2}px`;
     // Force the decoration color to white so it contrasts with the background
     el.style.textDecorationColor = '#ffffff';
 
     // Transformations
     el.style.transform = `
-        rotate(${Math.random() * 40 - 20}deg) 
-        scaleX(${Math.random() > 0.8 ? -1 : 1}) 
-        translateY(${Math.random() * 20 - 10}px)`;
+        rotate(${Math.random() * 180 - 90}deg) 
+        scaleX(${Math.random() > 0.5 ? -1 : 1}*${Math.random()*2+0.5}) 
+        translateY(${Math.random() * 40 - 20}px)`;
 
     if (Math.random() > 0.9) {
         el.style.opacity = "0";
@@ -159,8 +159,6 @@ function letterChaosLoop(el) {
         const opacityLevels = [0.2, 0.5, 1.0]; 
         el.style.opacity = opacityLevels[Math.floor(Math.random() * opacityLevels.length)];
     }
-    
-    el.style.filter = Math.random() > 0.8 ? "invert(1)" : "invert(0)";
     
     const delay = (Math.random() * 500 + 100) / difficultyMultiplier;
     setTimeout(() => letterChaosLoop(el), delay);
@@ -180,7 +178,7 @@ function rescrambleIntervalLoop() {
     container.style.top = `${randomTop}%`;
     container.style.left = `${randomLeft}%`;
 
-    const delay = (Math.random() * 3000 + 1000) / difficultyMultiplier;
+    const delay = (Math.random() * 2000 + 500) / difficultyMultiplier;
     setTimeout(rescrambleIntervalLoop, delay);
 }
 
