@@ -30,10 +30,25 @@
             <input type="text" id="user-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="TYPE HERE">
         </div>
 
-        <div id="difficulty-panel">
-            <label for="speed-slider">slider of death and suffering...</label>
-            <input type="range" id="speed-slider" min="0.2" max="5.0" step="0.1" value="1.0">
-            <span id="multiplier-display">1.0x</span>
+        <div id="admin-menu">
+            <h2>SYSTEM CALIBRATION</h2>
+    
+            <div class="setting-row">
+                <label for="speed-slider">slider of doom and dispair... [<span id="multiplier-display">1.0x</span>]</label>
+                <input type="range" id="speed-slider" min="0.2" max="5.0" step="0.1" value="1.0">
+            </div>
+
+            <div class="setting-row">
+                <label for="toggle-teleport">telportation</label>
+                <input type="checkbox" id="toggle-teleport" checked>
+            </div>
+
+            <div class="setting-row">
+                <label for="toggle-fonts">cursed fonts</label>
+               <input type="checkbox" id="toggle-fonts" checked>
+            </div>
+
+            <button id="close-admin">exit</button>
         </div>
     </div>
 
