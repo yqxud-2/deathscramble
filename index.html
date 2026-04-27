@@ -11,7 +11,7 @@
         const warning = "WARNING: This game contains rapid flashing, high-contrast strobing, and disorienting visual patterns. It may cause motion sickness or trigger photosensitive seizures.\n\nType 'start' to acknowledge and proceed.";
         let userConfirm = prompt(warning);
         if (!userConfirm || userConfirm.toLowerCase() !== 'start') {
-            document.body.innerHTML = "<h1 style='color:white; text-align:center; font-family:sans-serif; margin-top:20vh;'>Game Aborted. Stay safe.</h1>";
+            window.location.href = "about:blank";
             throw new Error("User aborted execution."); // Stops the rest of the JS from running
         }
     </script>
