@@ -11,12 +11,12 @@
 
 body {
     background-color: #000;
-    overflow: hidden; /* Prevents scrolling when the word jumps off-center */
-    touch-action: none; /* Disables double-tap zoom on tablets */
+    overflow: hidden; /* no scroll */
+    touch-action: none; /* no zooming in and cheating!!! */
     font-family: sans-serif;
 }
 
-/* Background Patterns & Animation */
+/* animationing: */
 #game-viewport {
     width: 100vw;
     height: 100vh;
@@ -44,36 +44,36 @@ body {
     to { background-position: 0 100px; }
 }
 
-/* The Scrambled Word Container */
+/* container for word */
 #scrambled-container {
-    position: absolute; /* Allows it to teleport around the screen */
-    top: 40%; /* Default starting position */
+    position: absolute; /* let it jump :> */
+    top: 40%; /* start in center cuz im nice */
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    mix-blend-mode: difference; /* Inverts text based on background stripes */
-    filter: url(#liquid-warp); /* Warps the skeleton of the fonts */
-    transition: letter-spacing 2s ease-in-out; /* Breathing kerning */
+    mix-blend-mode: difference; /* blend the text with stripes */
+    filter: url(#liquid-warp); /* warping is fun */
+    transition: letter-spacing 2s ease-in-out; /* breathe in, breathe out */
     z-index: 5;
-    width: max-content; /* Prevents word from wrapping if it hits the edge */
+    width: max-content; /* yes, go off the edge, no wrap */
 }
 
-/* Individual Letters */
+/* each letter */
 .chaos-letter {
     display: inline-block;
     transition: all 0.05s ease-in-out;
     user-select: none;
-    /* Chromatic Aberration Effect */
+    /* chromatic abberation :o */
     color: #FFFFFF;
     text-shadow: 4px 0 0 rgba(255, 0, 0, 0.8), -4px 0 0 rgba(0, 255, 255, 0.8);
 }
 
-/* UI Elements */
+/* ui */
 #ui-layer {
     position: absolute;
-    bottom: 120px; /* Kept out of the way of the teleporting text */
+    bottom: 120px;
     z-index: 10;
 }
 
@@ -116,7 +116,7 @@ input[type=range] {
     height: 20px;
 }
 
-/* Afterimage Flash Overlay */
+/* flash!!!!! */
 #flash-overlay {
     position: fixed;
     inset: 0;
