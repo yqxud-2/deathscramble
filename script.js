@@ -123,6 +123,11 @@ function letterChaosLoop(el) {
     const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
     el.style.fontFamily = randomFont;
 
+    el.style.fontSize = "5rem";  
+    el.style.opacity = "1";          
+    el.style.color = "white";  
+    el.style.display = "inline-block";
+
     // sizing :o
     /*const randomSize = (Math.random() * 5 + 2).toFixed(2);
     el.style.fontSize = `${randomSize}rem`;
