@@ -131,20 +131,20 @@ function letterChaosLoop(el) {
     el.style.display = "inline-block";
 
     // sizing :o
-    /*const randomSize = (Math.random() * 5 + 2).toFixed(2);
+    const randomSize = (Math.random() * 5 + 2).toFixed(2);
     el.style.fontSize = `${randomSize}rem`;
 
     // uppercase, lowercase
     const currentChar = el.innerText;
     el.innerText = Math.random() > 0.5 ? currentChar.toUpperCase() : currentChar.toLowerCase();
 
-    */
+    
 
     // thiccc or thinnn
     const fontWeightOptions = [300, 400, 700, 900];
     el.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
 
-    /*
+    
 
     // text deco
     const decos = [];
@@ -168,7 +168,7 @@ function letterChaosLoop(el) {
         const opacityLevels = [0.2, 0.5, 1.0]; 
         el.style.opacity = opacityLevels[Math.floor(Math.random() * opacityLevels.length)];
     }
-    */
+    
     
     const delay = (Math.random() * 500 + 100) / difficultyMultiplier;
     setTimeout(() => letterChaosLoop(el), delay);
@@ -177,7 +177,7 @@ function letterChaosLoop(el) {
 
 // scramble and teleport
 function rescrambleIntervalLoop() {
-    /*
+    
     scrambledArray.sort(() => Math.random() - 0.5);
     scrambledArray.forEach((char, i) => {
         const el = document.getElementById(`letter-${i}`);
@@ -192,34 +192,34 @@ function rescrambleIntervalLoop() {
 
     const delay = (Math.random() * 2000 + 500) / difficultyMultiplier;
     setTimeout(rescrambleIntervalLoop, delay);
-    */
+    
 }
 
 // background chaos :)))
 function backgroundChaosLoop() {
-    /*
+    
     viewport.classList.toggle('pattern-a');
     viewport.classList.toggle('pattern-b');
     const delay = (Math.random() * 1000 + 500) / difficultyMultiplier;
     setTimeout(backgroundChaosLoop, delay);
-    */
+    
 }
 
 // epilepsy :P
 function afterimageFlashLoop() {
-    /*
+    
     flash.style.opacity = 1;
     setTimeout(() => flash.style.opacity = 0, 16); 
     const delay = (Math.random() * 3000 + 3000) / difficultyMultiplier;
     setTimeout(afterimageFlashLoop, delay);
-    */
+    
 }
 
 // breathe in, breathe out
 function breathingKerningLoop() {
-    /*
+    
     const tracking = Math.random() * 40 - 20; 
     container.style.letterSpacing = `${tracking}px`;
     setTimeout(breathingKerningLoop, 2000 / difficultyMultiplier);
-    */
+    
 }
