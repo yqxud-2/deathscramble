@@ -44,10 +44,10 @@ async function initGame() {
     setupNewWord();
     
     // begin the chaos
-    //backgroundChaosLoop();
-    //afterimageFlashLoop();
-    //rescrambleIntervalLoop();
-    //breathingKerningLoop();
+    backgroundChaosLoop();
+    afterimageFlashLoop();
+    rescrambleIntervalLoop();
+    breathingKerningLoop();
 }
 
 // get a bew word
