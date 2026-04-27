@@ -162,6 +162,7 @@ function letterChaosLoop(el) {
     setTimeout(() => letterChaosLoop(el), delay);
 }
 
+/*
 // scramble and teleport
 function rescrambleIntervalLoop() {
     scrambledArray.sort(() => Math.random() - 0.5);
