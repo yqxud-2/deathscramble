@@ -1,7 +1,12 @@
 // Expanded font list
 const fonts = [
-    'Impact', 'Courier New', 'Comic Sans MS', 'Papyrus', 'Algerian', 
-    'Marker Felt', 'Chalkduster', 'Times New Roman', 'Georgia', 'Arial Black'
+    '"Impact", fantasy', 
+    '"Courier New", monospace', 
+    '"Comic Sans MS", "Marker Felt", cursive', 
+    '"Papyrus", fantasy', 
+    '"Times New Roman", serif', 
+    '"Arial Black", sans-serif',
+    'system-ui'
 ];
 
 let wordList = ["NIGHTMARE", "DYSLEXIA", "TORTURE", "CHAOS"]; 
@@ -137,6 +142,10 @@ function letterChaosLoop(el) {
     if (Math.random() > 0.7) decos.push('underline');
     if (Math.random() > 0.7) decos.push('line-through');
     el.style.textDecoration = decos.length > 0 ? decos.join(' ') : 'none';
+
+    el.style.textDecorationThickness = '4px';
+    // Force the decoration color to white so it contrasts with the background
+    el.style.textDecorationColor = '#ffffff';
 
     // Transformations
     el.style.transform = `
