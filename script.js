@@ -1,4 +1,3 @@
-// Expanded font list
 const fonts = [
     '"Impact", fantasy', 
     '"Courier New", monospace', 
@@ -14,10 +13,10 @@ let currentWord = "";
 let scrambledArray = [];
 let difficultyMultiplier = 1.0;
 
-// Variables for DOM elements (Queried after load to prevent crashes)
+// initialize
 let container, slider, multiplierDisplay, viewport, flash, inputField;
 
-// 1. Wait for HTML to load before grabbing elements
+// give values after html loads
 document.addEventListener('DOMContentLoaded', () => {
     container = document.getElementById('scrambled-container');
     slider = document.getElementById('speed-slider');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGame();
 });
 
-// 2. Initialization
+// starting the game!!!
 async function initGame() {
     try {
         const response = await fetch('words.json');
@@ -44,19 +43,19 @@ async function initGame() {
     
     setupNewWord();
     
-    // Start the Global Loops
+    // begin the chaos
     backgroundChaosLoop();
     afterimageFlashLoop();
     rescrambleIntervalLoop();
     breathingKerningLoop();
 }
 
-// 3. Game Setup
+// get a bew word
 function setupNewWord() {
     currentWord = wordList[Math.floor(Math.random() * wordList.length)];
     scrambledArray = currentWord.split('').sort(() => Math.random() - 0.5);
     
-    // Reset position to center
+    // center it to be fair
     container.style.top = "40%";
     container.style.left = "50%";
     
@@ -72,12 +71,12 @@ function renderLetters() {
         span.id = `letter-${index}`;
         container.appendChild(span);
         
-        // Ignite independent loop
+        // continue chaos
         letterChaosLoop(span);
     });
 }
 
-// 4. The Slider Logic
+// adjust difficulty for the weak minded or strong willed
 function setupInputListener() {
     slider.addEventListener('input', (e) => {
         difficultyMultiplier = parseFloat(e.target.value);
@@ -116,38 +115,36 @@ function setupInputListener() {
     });
 }
 
-// 5. The Chaos Loops
-
-// LOOP A: Independent Letter Chaos
+// loop for each letter
 function letterChaosLoop(el) {
-    if(!el.isConnected) return; // Bulletproof check to see if element exists
+    if(!el.isConnected) return; // probably dont need this anymore but i added it because it wasnt working at one point
 
-    // Font
+    // fonts :>
     const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
     el.style.fontFamily = `"${randomFont}"`;
 
-    // Size
+    // sizing :o
     const randomSize = (Math.random() * 5 + 2).toFixed(2);
     el.style.fontSize = `${randomSize}rem`;
 
-    // Case (The SpongeBob Effect)
+    // uppercase, lowercase
     const currentChar = el.innerText;
     el.innerText = Math.random() > 0.5 ? currentChar.toUpperCase() : currentChar.toLowerCase();
 
-    // Weight
+    // thiccc or thinnn
     el.style.fontWeight = Math.random() * 1000;
 
-    // Decorations (Underline/Strikethrough)
+    // text deco
     const decos = [];
     if (Math.random() > 0.7) decos.push('underline');
     if (Math.random() > 0.7) decos.push('line-through');
     el.style.textDecoration = decos.length > 0 ? decos.join(' ') : 'none';
 
     el.style.textDecorationThickness = `${Math.random()*10+2}px`;
-    // Force the decoration color to white so it contrasts with the background
+    // idk but the code wouldn't work without this
     el.style.textDecorationColor = '#ffffff';
 
-    // Transformations
+    // i like to move it move it
     el.style.transform = `
         rotate(${Math.random() * 180 - 90}deg) 
         scaleX(${Math.random() > 0.5 ? -1 : 1}*${Math.random()*2+0.5}) 
@@ -164,7 +161,7 @@ function letterChaosLoop(el) {
     setTimeout(() => letterChaosLoop(el), delay);
 }
 
-// LOOP B: Word Rescramble & Teleport
+// scramble and teleport
 function rescrambleIntervalLoop() {
     scrambledArray.sort(() => Math.random() - 0.5);
     scrambledArray.forEach((char, i) => {
@@ -182,15 +179,15 @@ function rescrambleIntervalLoop() {
     setTimeout(rescrambleIntervalLoop, delay);
 }
 
-// LOOP C: Pattern Swap
+// background chaos :)))
 function backgroundChaosLoop() {
     viewport.classList.toggle('pattern-a');
     viewport.classList.toggle('pattern-b');
-    const delay = (Math.random() * 2000 + 500) / difficultyMultiplier;
+    const delay = (Math.random() * 1000 + 500) / difficultyMultiplier;
     setTimeout(backgroundChaosLoop, delay);
 }
 
-// LOOP D: Flash
+// epilepsy :P
 function afterimageFlashLoop() {
     flash.style.opacity = 1;
     setTimeout(() => flash.style.opacity = 0, 16); 
@@ -198,7 +195,7 @@ function afterimageFlashLoop() {
     setTimeout(afterimageFlashLoop, delay);
 }
 
-// LOOP E: Kerning
+// breathe in, breathe out
 function breathingKerningLoop() {
     const tracking = Math.random() * 40 - 20; 
     container.style.letterSpacing = `${tracking}px`;
