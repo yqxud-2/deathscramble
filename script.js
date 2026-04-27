@@ -124,7 +124,7 @@ function letterChaosLoop(el) {
 
     // Font
     const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
-    el.style.fontFamily = `"${randomFont}", sans-serif`;
+    el.style.fontFamily = `"${randomFont}"`;
 
     // Size
     const randomSize = (Math.random() * 5 + 2).toFixed(2);
@@ -135,7 +135,7 @@ function letterChaosLoop(el) {
     el.innerText = Math.random() > 0.5 ? currentChar.toUpperCase() : currentChar.toLowerCase();
 
     // Weight
-    el.style.fontWeight = Math.random() > 0.5 ? '900' : '100';
+    el.style.fontWeight = Math.random() * 1000;
 
     // Decorations (Underline/Strikethrough)
     const decos = [];
@@ -143,7 +143,7 @@ function letterChaosLoop(el) {
     if (Math.random() > 0.7) decos.push('line-through');
     el.style.textDecoration = decos.length > 0 ? decos.join(' ') : 'none';
 
-    el.style.textDecorationThickness = '4px';
+    el.style.textDecorationThickness = `${Math.random()*7+2}px`;
     // Force the decoration color to white so it contrasts with the background
     el.style.textDecorationColor = '#ffffff';
 
@@ -153,7 +153,9 @@ function letterChaosLoop(el) {
         scaleX(${Math.random() > 0.8 ? -1 : 1}) 
         translateY(${Math.random() * 20 - 10}px)`;
 
-    el.style.opacity = Math.random() > 0.9 ? 0 : 1; 
+    el.style.opacity = Math.random();
+
+    el.style.opacity = Math.random() > 0.9 ? 0 : el.style.opacity; 
     
     const delay = (Math.random() * 500 + 100) / difficultyMultiplier;
     setTimeout(() => letterChaosLoop(el), delay);
