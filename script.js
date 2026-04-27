@@ -44,10 +44,10 @@ async function initGame() {
     setupNewWord();
     
     // begin the chaos
-    backgroundChaosLoop();
-    afterimageFlashLoop();
-    rescrambleIntervalLoop();
-    breathingKerningLoop();
+    //backgroundChaosLoop();
+    //afterimageFlashLoop();
+    //rescrambleIntervalLoop();
+    //breathingKerningLoop();
 }
 
 // get a bew word
@@ -124,7 +124,7 @@ function letterChaosLoop(el) {
     el.style.fontFamily = randomFont;
 
     // sizing :o
-    const randomSize = (Math.random() * 5 + 2).toFixed(2);
+    /*const randomSize = (Math.random() * 5 + 2).toFixed(2);
     el.style.fontSize = `${randomSize}rem`;
 
     // uppercase, lowercase
@@ -156,6 +156,7 @@ function letterChaosLoop(el) {
         const opacityLevels = [0.2, 0.5, 1.0]; 
         el.style.opacity = opacityLevels[Math.floor(Math.random() * opacityLevels.length)];
     }
+    */
     
     const delay = (Math.random() * 500 + 100) / difficultyMultiplier;
     setTimeout(() => letterChaosLoop(el), delay);
