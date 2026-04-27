@@ -125,3 +125,73 @@ input[type=range] {
     pointer-events: none;
     z-index: 999;
 }
+
+@font-face {
+    font-family: 'BungeeShade';
+    src: url('fonts/BungeeShade-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Codystar';
+    src: url('fonts/Codystar-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Codystar';
+    src: url('fonts/Codystar-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'ComicRelief';
+    src: url('fonts/ComicRelief-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'ComicRelief';
+    src: url('fonts/ComicRelief-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Creepster';
+    src: url('fonts/Creepster-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'DotGothic16';
+    src: url('fonts/DotGothic16-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Monoton';
+    src: url('fonts/Monoton-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Nosifer';
+    src: url('fonts/Nosifer-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'RubikGlitchPop';
+    src: url('fonts/RubikGlitchPop-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'ZillaSlabHighlight';
+    src: url('fonts/ZillaSlabHighlight-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'ZillaSlabHighlight';
+    src: url('fonts/ZillaSlabHighlight-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
