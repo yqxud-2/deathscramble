@@ -1,0 +1,110 @@
+:root {
+    --bg-speed: 0.15s;
+    --blur-amount: 0px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+    overflow: hidden; 
+    touch-action: none;
+}
+
+
+#game-viewport {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.1s;
+    filter: blur(var(--blur-amount));
+}
+
+.pattern-a {
+    background: repeating-linear-gradient(45deg, #000, #000 20px, #fff 20px, #fff 40px);
+    animation: scroll-bg var(--bg-speed) linear infinite;
+}
+
+.pattern-b {
+    background: repeating-linear-gradient(-45deg, #ff00ff, #ff00ff 10px, #00ff00 10px, #00ff00 20px);
+    animation: scroll-bg calc(var(--bg-speed) / 2) steps(3) infinite;
+}
+
+@keyframes scroll-bg {
+    from { background-position: 0 0; }
+    to { background-position: 0 100px; }
+}
+
+#scrambled-container {
+    display: flex;
+    font-size: 4rem;
+    mix-blend-mode: difference; 
+    filter: url(#liquid-warp); 
+    transition: letter-spacing 2s ease-in-out; 
+    margin-bottom: 50px;
+}
+
+.chaos-letter {
+    display: inline-block;
+    transition: all 0.05s ease-in-out;
+    user-select: none;
+    text-shadow: 4px 0 0 rgba(255, 0, 0, 0.8), -4px 0 0 rgba(0, 255, 255, 0.8);
+}
+
+#ui-layer {
+    z-index: 10;
+}
+
+#user-input {
+    font-size: 2rem;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 3px solid #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Impact', sans-serif;
+    mix-blend-mode: difference;
+}
+
+#user-input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.3);
+}
+
+#difficulty-panel {
+    position: absolute;
+    bottom: 30px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 15px;
+    border: 2px solid white;
+    font-family: monospace;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+input[type=range] {
+    width: 250px;
+    height: 20px;
+}
+
+#flash-overlay {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
