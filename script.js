@@ -146,9 +146,9 @@ function letterChaosLoop(el) {
 
     // i like to move it move it
     el.style.transform = `
-        rotate(${Math.random() * 180 - 90}deg) 
+        rotate(${Math.random() * 360}deg) 
         scaleX(${Math.random() > 0.5 ? -1 : 1}*${Math.random()*2+0.5}) 
-        translateY(${Math.random() * 40 - 20}px)`;
+        translateY(${Math.random() * 30-60}px)`;
 
     if (Math.random() > 0.9) {
         el.style.opacity = "0";
