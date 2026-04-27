@@ -11,14 +11,16 @@
 
 body {
     background-color: #000;
-    overflow: hidden; 
-    touch-action: none;
+    overflow: hidden; /* Prevents scrolling when the word jumps off-center */
+    touch-action: none; /* Disables double-tap zoom on tablets */
+    font-family: sans-serif;
 }
 
-
+/* Background Patterns & Animation */
 #game-viewport {
     width: 100vw;
     height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,47 +44,60 @@ body {
     to { background-position: 0 100px; }
 }
 
+/* The Scrambled Word Container */
 #scrambled-container {
+    position: absolute; /* Allows it to teleport around the screen */
+    top: 40%; /* Default starting position */
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    font-size: 4rem;
-    mix-blend-mode: difference; 
-    filter: url(#liquid-warp); 
-    transition: letter-spacing 2s ease-in-out; 
-    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: difference; /* Inverts text based on background stripes */
+    filter: url(#liquid-warp); /* Warps the skeleton of the fonts */
+    transition: letter-spacing 2s ease-in-out; /* Breathing kerning */
+    z-index: 5;
+    width: max-content; /* Prevents word from wrapping if it hits the edge */
 }
 
+/* Individual Letters */
 .chaos-letter {
     display: inline-block;
     transition: all 0.05s ease-in-out;
     user-select: none;
+    /* Chromatic Aberration Effect */
     text-shadow: 4px 0 0 rgba(255, 0, 0, 0.8), -4px 0 0 rgba(0, 255, 255, 0.8);
 }
 
+/* UI Elements */
 #ui-layer {
+    position: absolute;
+    bottom: 120px; /* Kept out of the way of the teleporting text */
     z-index: 10;
 }
 
 #user-input {
     font-size: 2rem;
     padding: 10px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border: 3px solid #fff;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Impact', sans-serif;
     mix-blend-mode: difference;
+    width: 300px;
 }
 
 #user-input:focus {
     outline: none;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 #difficulty-panel {
     position: absolute;
     bottom: 30px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 15px;
     border: 2px solid white;
@@ -100,6 +115,7 @@ input[type=range] {
     height: 20px;
 }
 
+/* Afterimage Flash Overlay */
 #flash-overlay {
     position: fixed;
     inset: 0;
