@@ -15,19 +15,20 @@ let currentWord = "";
 let scrambledArray = []; 
 let difficultyMultiplier = 1.0; 
 
-// NEW STATE VARIABLES
+// settings
 let allowTeleport = true;
 let allowFontChaos = true;
 let allowJumping = true;
 let allowAngles = true;
 let allowSizing = true;
+let allowBg = true;
 let isMenuOpen = false;
 let tapTimes = [];
 
 // initialize 
 let container, slider, multiplierDisplay, viewport, flash, inputField; 
 let adminMenu, closeAdminBtn 
-let jumpingToggle, anglesToggle, sizingToggle, teleportToggle, fontToggle;
+let jumpingToggle, anglesToggle, sizingToggle, teleportToggle, fontToggle, bgToggle,
 
 // give values after html loads 
 document.addEventListener('DOMContentLoaded', () => { 
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     jumpingToggle = document.getElementById('toggle-jumping');
     anglesToggle = document.getElementById('toggle-angles');
     sizingToggle = document.getElementById('toggle-sizing');
+    bgToggle = document,getElementById('toggle-bg');
     
     closeAdminBtn = document.getElementById('close-admin');
 
@@ -139,6 +141,11 @@ function setupInputListener() {
 
     sizingToggle.addEventListener('change', (e) => {
         allowSizing = e.target.checked;
+    });
+
+    bgToggle.addEventListener('change', (e) => {
+        allowBg = e.target.checked;
+        document.getElementById('normalBg').style.display = allowBg ? 'none' : 'block';
     });
 
     slider.addEventListener('input', (e) => { 
@@ -272,12 +279,12 @@ function rescrambleIntervalLoop() {
 
 // background chaos :))) 
 function backgroundChaosLoop() { 
-    
-    viewport.classList.toggle('pattern-a'); 
-    viewport.classList.toggle('pattern-b'); 
-    const delay = (Math.random() * 1000 + 500) / difficultyMultiplier; 
-    setTimeout(backgroundChaosLoop, delay); 
-    
+    if (allowBg) {
+        viewport.classList.toggle('pattern-a'); 
+        viewport.classList.toggle('pattern-b'); 
+        const delay = (Math.random() * 1000 + 500) / difficultyMultiplier; 
+        setTimeout(backgroundChaosLoop, delay); 
+    }    
 } 
 
 // epilepsy :P 
