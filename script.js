@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     jumpingToggle = document.getElementById('toggle-jumping');
     anglesToggle = document.getElementById('toggle-angles');
     sizingToggle = document.getElementById('toggle-sizing');
-    bgToggle = document,getElementById('toggle-bg');
+    bgToggle = document.getElementById('toggle-bg');
     
     closeAdminBtn = document.getElementById('close-admin');
 
