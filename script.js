@@ -282,9 +282,9 @@ function backgroundChaosLoop() {
     if (allowBg) {
         viewport.classList.toggle('pattern-a'); 
         viewport.classList.toggle('pattern-b'); 
-        const delay = (Math.random() * 1000 + 500) / difficultyMultiplier; 
-        setTimeout(backgroundChaosLoop, delay); 
-    }    
+    }  
+    const delay = (Math.random() * 1000 + 500) / difficultyMultiplier; 
+    setTimeout(backgroundChaosLoop, delay); 
 } 
 
 // epilepsy :P 
